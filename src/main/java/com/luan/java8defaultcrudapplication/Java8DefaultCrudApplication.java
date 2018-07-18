@@ -1,4 +1,4 @@
-package com.luan.default.java8defaultcrudapplication;
+package com.luan.java8defaultcrudapplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.luan.default.java8defaultcrudapplication;
+package com.luan.java8defaultcrudapplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
