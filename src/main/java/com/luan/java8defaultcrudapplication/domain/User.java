@@ -25,6 +25,14 @@ public class User implements Serializable {
 	@Column(name="USER_AGE", nullable = false)
 	private int age;
 	
+	public void setId(Long id) {
+		this.id = id;
+		
+	}
+	public Long getId() {
+		return this.id;
+		
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
