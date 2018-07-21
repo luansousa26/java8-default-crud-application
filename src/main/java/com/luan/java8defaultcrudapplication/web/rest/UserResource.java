@@ -2,6 +2,7 @@ package com.luan.java8defaultcrudapplication.web.rest;
 import java.net.URISyntaxException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,5 +23,10 @@ public class UserResource {
 	@PostMapping()
 	public ResponseEntity<UserDTO> save(@RequestBody UserDTO userDTO) throws URISyntaxException {
 		return ResponseEntity.ok().body(userService.save(userDTO));
+	}
+	
+	@PutMapping()
+	public ResponseEntity<UserDTO> update(@RequestBody UserDTO userDTO) throws URISyntaxException {
+		return ResponseEntity.ok().body(userService.update(userDTO));
 	}
 }
