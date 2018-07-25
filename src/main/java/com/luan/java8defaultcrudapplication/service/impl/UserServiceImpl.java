@@ -4,10 +4,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.luan.java8defaultcrudapplication.Java8DefaultCrudApplication;
 import com.luan.java8defaultcrudapplication.repository.UserRepository;
 import com.luan.java8defaultcrudapplication.service.UserService;
 import com.luan.java8defaultcrudapplication.service.dto.UserDTO;
@@ -16,7 +19,8 @@ import com.luan.java8defaultcrudapplication.service.mapper.UserMapper;
 @Service
 @Component
 public class UserServiceImpl implements UserService{
-
+	
+	private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplication.class);
 	@Autowired
 	UserRepository userRepository;
 
@@ -28,11 +32,13 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public UserDTO save(UserDTO userDTO) {
+		log.info("Request to save()");
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(userDTO)));
 	}
 
 	@Override
 	public List<UserDTO> findAll() {
+		log.info("Request to findAll()");
 		return userRepository.findAll()
 				.stream()
 				.map(userMapper :: toDto)
@@ -41,16 +47,19 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public UserDTO findOne(Long idUser) {
+		log.info("Request to findById()");
 		return userMapper.toDto(userRepository.findById(idUser));
 	}
 
 	@Override
 	public UserDTO update(UserDTO userDTO) {
+		log.info("Request to update()");
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(userDTO)));
 	}
 
 	@Override
 	public void delete(Long id) {
+		log.info("Request to delete()");
 		userRepository.deleteById(id);
 	}
 
