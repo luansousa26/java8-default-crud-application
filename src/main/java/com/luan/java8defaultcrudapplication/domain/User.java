@@ -1,6 +1,8 @@
 package com.luan.java8defaultcrudapplication.domain;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -24,6 +26,9 @@ public class User implements Serializable {
 	
 	@Column(name="USER_AGE", nullable = false)
 	private int age;
+	
+	@Column(name = "ALTER_DATE", nullable = false)
+	private LocalDate alterationDate;
 	
 	public void setId(Long id) {
 		this.id = id;
@@ -50,5 +55,11 @@ public class User implements Serializable {
 	}
 	public int getAge() {
 		return this.age;
+	}
+	public LocalDate getAlterationDate() {
+		return this.alterationDate;
+	}
+	public void setAlterationDate(LocalDate alterationDate) {
+		this.alterationDate = alterationDate;
 	}
 }
