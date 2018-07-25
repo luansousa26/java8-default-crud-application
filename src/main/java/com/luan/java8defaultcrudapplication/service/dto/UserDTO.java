@@ -1,6 +1,7 @@
 package com.luan.java8defaultcrudapplication.service.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,6 +22,9 @@ public class UserDTO implements Serializable {
 
 	@ApiModelProperty(value= " User age.")
 	private int age;
+
+    @ApiModelProperty(value = "Alteration date")
+    private LocalDate alterationDate;
 	
 	public Long getId() {
 		return this.id;
@@ -48,5 +52,11 @@ public class UserDTO implements Serializable {
 	
 	public int getAge() {
 		return this.age;
+	}
+	public LocalDate getAlterationDate() {
+		return this.alterationDate;
+	}
+	public void setAlterationDate(LocalDate alterationDate) {
+		this.alterationDate = alterationDate;
 	}
 }
