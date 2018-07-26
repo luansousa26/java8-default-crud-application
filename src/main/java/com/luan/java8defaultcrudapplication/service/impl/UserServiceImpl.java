@@ -1,5 +1,6 @@
 package com.luan.java8defaultcrudapplication.service.impl;
 
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,6 +34,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserDTO save(UserDTO userDTO) {
 		log.info("Request to save()");
+		userDTO.setAlterationDate(LocalDate.now());
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(userDTO)));
 	}
 
@@ -54,6 +56,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserDTO update(UserDTO userDTO) {
 		log.info("Request to update()");
+		userDTO.setAlterationDate(LocalDate.now());
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(userDTO)));
 	}
 
