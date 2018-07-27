@@ -3,6 +3,7 @@ package com.luan.java8defaultcrudapplication.domain;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,12 +22,25 @@ public class Client implements Serializable {
 	@Id
 	private Long id;
 	
+	@Column(name = "NAME")
 	private String name;
+	
+	@Column(name = "BIRTH_DATE")
 	private LocalDate birthDate;
+	
+	@Column(name = "CPF")
 	private String cpf;
+	
+	@Column(name = "CNPJ")
 	private String cnpj;
+	
+	@Column(name = "REMUNERATION")
 	private Long remuneration;
+	
+	@Column(name = "JOB")
 	private String job;
+	
+	@Column(name = "FORMATION")
 	private String formation;
 	
 	public Long getId() {
