@@ -6,4 +6,11 @@ public class DocumentValidator {
 	private String cnpj;
 	private String email;
 	
+	public String getCpf() {
+		return this.cpf;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 }
