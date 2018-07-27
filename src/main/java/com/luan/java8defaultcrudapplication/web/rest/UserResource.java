@@ -49,4 +49,8 @@ public class UserResource {
 	public void deleteUser(@PathVariable("idUser") Long idUser) throws URISyntaxException {
 		userService.delete(idUser);
 	}
+	@GetMapping("/findByName/{name}")
+	public ResponseEntity<List<UserDTO>> findByName(@PathVariable("name") String name) throws URISyntaxException {
+		return ResponseEntity.ok().body(userService.findByName(name));
+	}
 }
