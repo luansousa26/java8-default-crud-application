@@ -22,25 +22,25 @@ public class Client implements Serializable {
 	@Id
 	private Long id;
 	
-	@Column(name = "NAME")
+	@Column(name = "CLIENT_NAME")
 	private String name;
 	
-	@Column(name = "BIRTH_DATE")
+	@Column(name = "CLIENT_BIRTH_DATE")
 	private LocalDate birthDate;
 	
-	@Column(name = "CPF")
+	@Column(name = "CLIENT_CPF")
 	private String cpf;
 	
-	@Column(name = "CNPJ")
+	@Column(name = "CLIENT_CNPJ")
 	private String cnpj;
 	
-	@Column(name = "REMUNERATION")
+	@Column(name = "CLIENT_REMUNERATION")
 	private Long remuneration;
 	
-	@Column(name = "JOB")
+	@Column(name = "CLIENT_JOB")
 	private String job;
 	
-	@Column(name = "FORMATION")
+	@Column(name = "CLIENT_FORMATION")
 	private String formation;
 	
 	@Column(name = "ALTERATION_DATE")
