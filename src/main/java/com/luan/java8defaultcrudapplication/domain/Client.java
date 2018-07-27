@@ -4,17 +4,23 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.luan.java8defaultcrudapplication.utils.Address;
-import com.luan.java8defaultcrudapplication.utils.Contact;
 
 @Entity
 @Table(name = "TB_CLIENT")
+@SequenceGenerator(name="sequency", initialValue=1, allocationSize=100)
 public class Client implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sequency")
+	@Id
 	private Long id;
+	
 	private String name;
 	private LocalDate birthDate;
 	private String cpf;
@@ -22,8 +28,6 @@ public class Client implements Serializable {
 	private Long remuneration;
 	private String job;
 	private String formation;
-	private Address adress;
-	private Contact contact;
 	
 	public Long getId() {
 		return this.id;
@@ -86,21 +90,5 @@ public class Client implements Serializable {
 	
 	public void setFormation(String formation) {
 		this.formation = formation;
-	}
-    
-	public Address getAdress() {
-		return this.adress;
-	}
-	
-	public void setAdress(Address adress) {
-		this.adress = adress;
-	}
-	
-	public Contact getContact() {
-		return this.contact;
-	}
-	
-	public void setContact(Contact contact) {
-		this.contact = contact;
 	}
 }

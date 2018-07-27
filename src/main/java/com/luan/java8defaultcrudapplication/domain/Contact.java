@@ -1,4 +1,4 @@
-package com.luan.java8defaultcrudapplication.utils;
+package com.luan.java8defaultcrudapplication.domain;
 
 public class Contact {
 	
