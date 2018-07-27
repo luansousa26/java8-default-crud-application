@@ -14,5 +14,7 @@ public class Client {
 	private String cpf;
 	private String cnpj;
 	private Long remuneration;
+	private String job;
+	private String formation;
 
 }
