@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.luan.java8defaultcrudapplication.utils.Address;
+
 @Entity
 @Table(name= "TB_CLIENT")
 public class Client {
@@ -16,5 +18,6 @@ public class Client {
 	private Long remuneration;
 	private String job;
 	private String formation;
+	private Address adress;
 
 }
