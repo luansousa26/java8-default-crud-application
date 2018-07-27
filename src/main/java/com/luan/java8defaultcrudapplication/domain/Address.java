@@ -1,5 +1,6 @@
 package com.luan.java8defaultcrudapplication.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,12 +16,29 @@ public class Address {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sequency")
 	@Id
 	private Long id;
+	
+	@Column(name = "STREET")
 	private String street;
+	
+	@Column(name = "DISTRICT")
 	private String district;
+	
+	@Column(name = "NUMBER")
 	private Long number;
+	
+	@Column(name = "CITY")
 	private String city;
+	
+	@Column(name = "STATE")
 	private String state;
+	
+	@Column(name = "COUNTRY")
+	private String country;
+	
+	@Column(name = "CEP")
 	private String cep;
+	
+	@Column(name = "IDCLIENT")
 	private Long idClient;
 	
 	public Long geId() {
@@ -69,6 +87,14 @@ public class Address {
 	
 	public void setState(String state) {
 		this.state = state;
+	}
+	
+	public String getCountry() {
+		return this.country;
+	}
+	
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 	public String getCep() {
