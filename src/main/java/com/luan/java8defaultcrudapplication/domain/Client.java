@@ -43,6 +43,9 @@ public class Client implements Serializable {
 	@Column(name = "FORMATION")
 	private String formation;
 	
+	@Column(name = "ALTERATION_DATE")
+	private LocalDate alterationDate;
+	
 	public Long getId() {
 		return this.id;
 	}
@@ -104,5 +107,14 @@ public class Client implements Serializable {
 	
 	public void setFormation(String formation) {
 		this.formation = formation;
+	}
+	
+	
+	public LocalDate getAlterationDate() {
+		return this.alterationDate;
+	}
+	
+	public void setAlterationDate(LocalDate alterationDate) {
+		this.alterationDate = alterationDate;
 	}
 }
