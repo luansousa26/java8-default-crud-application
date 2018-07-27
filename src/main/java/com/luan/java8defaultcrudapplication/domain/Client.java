@@ -14,6 +14,7 @@ import com.luan.java8defaultcrudapplication.utils.Contact;
 public class Client implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	private Long id;
 	private String name;
 	private LocalDate birthDate;
 	private String cpf;
@@ -23,6 +24,14 @@ public class Client implements Serializable {
 	private String formation;
 	private Address adress;
 	private Contact contact;
+	
+	public Long getId() {
+		return this.id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return this.name;
