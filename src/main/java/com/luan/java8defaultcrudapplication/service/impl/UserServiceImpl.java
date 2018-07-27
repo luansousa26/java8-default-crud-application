@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public UserDTO save(UserDTO userDTO) {
-		log.info("Request to save()");
+		log.info("Request to save(): {}", userDTO);
 		userDTO.setAlterationDate(LocalDate.now());
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(userDTO)));
 	}
@@ -48,26 +48,27 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserDTO findOne(Long idUser) {
-		log.info("Request to findById()");
+	public UserDTO findById(Long idUser) {
+		log.info("Request to findById(): {}", idUser);
 		return userMapper.toDto(userRepository.findById(idUser));
 	}
 
 	@Override
 	public UserDTO update(UserDTO userDTO) {
-		log.info("Request to update()");
+		log.info("Request to update(): {}", userDTO);
 		userDTO.setAlterationDate(LocalDate.now());
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(userDTO)));
 	}
 
 	@Override
 	public void delete(Long id) {
-		log.info("Request to delete()");
+		log.info("Request to delete(): {}", id);
 		userRepository.deleteById(id);
 	}
 
 	@Override
 	public List<UserDTO> findByName(String name) {
+		log.info("Request to findByName(): {}", name);
 		return userRepository.findBynameContainingIgnoreCase(name)
 				.stream()
 				.map(userMapper :: toDto)

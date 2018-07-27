@@ -43,7 +43,7 @@ public class UserResource {
 	}
 	@GetMapping("/findByID/{idUser}")
 	public ResponseEntity<UserDTO> getByID(@PathVariable("idUser") Long idUser ) throws URISyntaxException{
-		return ResponseEntity.ok().body(userService.findOne(idUser));
+		return ResponseEntity.ok().body(userService.findById(idUser));
 	}
 	@DeleteMapping("/deleteUser/{idUser}")
 	public void deleteUser(@PathVariable("idUser") Long idUser) throws URISyntaxException {
