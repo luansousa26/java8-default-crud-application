@@ -1,5 +1,7 @@
 package com.luan.java8defaultcrudapplication.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,6 +36,9 @@ public class Contact {
 	
 	@Column(name = "IDCLIENT")
 	private Long idClient;
+	
+	@Column(name = "ALTERATION_DATE")
+	private LocalDate alterationDate;
 	
 	public Long getId() {
 		return this.id;
@@ -87,5 +92,13 @@ public class Contact {
 	
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
+	}
+	
+	public LocalDate getAlterationDate() {
+		return this.alterationDate;
+	}
+	
+	public void setAlterationDate(LocalDate alterationDate) {
+		this.alterationDate = alterationDate;
 	}
 }
