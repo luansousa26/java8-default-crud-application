@@ -66,4 +66,12 @@ public class UserServiceImpl implements UserService{
 		userRepository.deleteById(id);
 	}
 
+	@Override
+	public List<UserDTO> findByName(String name) {
+		return userRepository.findBynameContainingIgnoreCase(name)
+				.stream()
+				.map(userMapper :: toDto)
+				.collect(Collectors.toCollection(LinkedList :: new));
+	}
+
 }
