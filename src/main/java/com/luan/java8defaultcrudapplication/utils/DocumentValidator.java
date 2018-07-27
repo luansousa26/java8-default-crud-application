@@ -59,7 +59,7 @@ public class DocumentValidator {
             return false;
         }
 
-        // Segundo digito
+        // secondy digity
         soma = 0;
 
         for (int i = 1; i <= 10; i++) {
