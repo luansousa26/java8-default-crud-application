@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,8 +41,13 @@ private final ContactService contactService;
 		return ResponseEntity.ok().body(contactService.findAll());
 	}
 	
-	@GetMapping("/{contactId}")
-	public ResponseEntity<Optional<ContactDTO>> findById(@PathVariable("contactId") Long idContact) throws URISyntaxException {
+	@GetMapping("/{idContact}")
+	public ResponseEntity<Optional<ContactDTO>> findById(@PathVariable("idContact") Long idContact) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.findById(idContact));
+	}
+	
+	@DeleteMapping("/{idContact}")
+	public void delete(@PathVariable("idContact") Long idContact) {
+		contactService.delete(idContact);
 	}
 }
