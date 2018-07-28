@@ -1,56 +1,35 @@
-package com.luan.java8defaultcrudapplication.domain;
+package com.luan.java8defaultcrudapplication.service.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import com.luan.java8defaultcrudapplication.domain.Address;
+import com.luan.java8defaultcrudapplication.domain.Contact;
 
-@Entity
-@Table(name = "TB_CLIENT")
-@SequenceGenerator(name="sequency", initialValue=1, allocationSize=100)
-public class Client implements Serializable {
+public class ClientDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sequency")
-	@Id
+
 	private Long id;
 	
-	@Column(name = "CLIENT_NAME")
 	private String name;
 	
-	@Column(name = "CLIENT_BIRTH_DATE")
 	private LocalDate birthDate;
 	
-	@Column(name = "CLIENT_CPF")
 	private String cpf;
 	
-	@Column(name = "CLIENT_CNPJ")
 	private String cnpj;
 	
-	@Column(name = "CLIENT_REMUNERATION")
 	private Long remuneration;
 	
-	@Column(name = "CLIENT_JOB")
 	private String job;
 	
-	@Column(name = "CLIENT_FORMATION")
 	private String formation;
 	
-	@Column(name = "ALTERATION_DATE")
 	private LocalDate alterationDate;
 	
-	@OneToOne
 	private Contact contact;
 	
-	@OneToOne
 	private Address address;
 	
 	public Long getId() {

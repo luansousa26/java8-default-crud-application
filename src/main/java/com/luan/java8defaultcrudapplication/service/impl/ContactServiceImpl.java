@@ -1,7 +1,9 @@
 package com.luan.java8defaultcrudapplication.service.impl;
 
+import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import com.luan.java8defaultcrudapplication.service.mapper.ContactMapper;
 public class ContactServiceImpl implements ContactService{
 	
 	private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplication.class);
+	
 	@Autowired
 	ContactRepository contactRepository;
 
@@ -26,32 +29,37 @@ public class ContactServiceImpl implements ContactService{
 	
 	@Override
 	public ContactDTO save(ContactDTO contactDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to save(): {}", contactDTO);
+		contactDTO.setAlterationDate(LocalDate.now());
+		return contactMapper.toDto(contactRepository.save(contactMapper.toEntity(contactDTO)));
 	}
 
 	@Override
 	public List<ContactDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to findAll()");
+		return contactRepository.findAll()
+				.stream()
+				.map(contactMapper :: toDto)
+				.collect(Collectors.toCollection(LinkedList :: new));
 	}
 
 	@Override
 	public ContactDTO update(ContactDTO contactDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to update()");
+		contactDTO.setAlterationDate(LocalDate.now());
+		return contactMapper.toDto(contactRepository.save(contactMapper.toEntity(contactDTO)));
 	}
 
 	@Override
 	public void delete(Long idContact) {
-		// TODO Auto-generated method stub
-		
+		log.info("Request to delete()");
+		contactRepository.deleteById(idContact);
 	}
 
 	@Override
-	public Optional<ContactDTO> findById(Long IdContact) {
-		// TODO Auto-generated method stub
-		return null;
+	public ContactDTO findById(Long IdContact) {
+		log.info("Request to findById(): {}", IdContact);
+		return contactMapper.toDto(contactRepository.findById(IdContact));
 	}
 
 }

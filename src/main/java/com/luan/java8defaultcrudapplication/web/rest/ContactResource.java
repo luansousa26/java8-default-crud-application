@@ -1,8 +1,6 @@
 package com.luan.java8defaultcrudapplication.web.rest;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,18 +21,19 @@ public class ContactResource {
 private final ContactService contactService;
     
 	private ContactResource(ContactService contactService) {
-		this.contactService = contactService;
+		this.contactService = contactService; 
 	}
 	
-	@PostMapping()
+	/* thoose methods cannot be acessed directly, the ClientSave will save Contact too.
+	 * @PostMapping()
 	public ResponseEntity<ContactDTO> save(@RequestBody ContactDTO contactDTO) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.save(contactDTO));
-	}
+	}*/
 	
-	@PutMapping()
+	/*@PutMapping()
 	public ResponseEntity<ContactDTO> update(@RequestBody ContactDTO contactDTO) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.update(contactDTO));
-	}
+	}*/
 	
 	@GetMapping()
 	public ResponseEntity<List<ContactDTO>> findAll() throws URISyntaxException {
@@ -42,7 +41,7 @@ private final ContactService contactService;
 	}
 	
 	@GetMapping("/{idContact}")
-	public ResponseEntity<Optional<ContactDTO>> findById(@PathVariable("idContact") Long idContact) throws URISyntaxException {
+	public ResponseEntity<ContactDTO> findById(@PathVariable("idContact") Long idContact) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.findById(idContact));
 	}
 	
