@@ -24,16 +24,15 @@ private final ContactService contactService;
 		this.contactService = contactService; 
 	}
 	
-	/* thoose methods cannot be acessed directly, the ClientSave will save Contact too.
-	 * @PostMapping()
+	@PostMapping()
 	public ResponseEntity<ContactDTO> save(@RequestBody ContactDTO contactDTO) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.save(contactDTO));
-	}*/
+	}
 	
-	/*@PutMapping()
+	@PutMapping()
 	public ResponseEntity<ContactDTO> update(@RequestBody ContactDTO contactDTO) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.update(contactDTO));
-	}*/
+	}
 	
 	@GetMapping()
 	public ResponseEntity<List<ContactDTO>> findAll() throws URISyntaxException {

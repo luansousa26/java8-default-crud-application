@@ -6,30 +6,44 @@ import java.time.LocalDate;
 import com.luan.java8defaultcrudapplication.domain.Address;
 import com.luan.java8defaultcrudapplication.domain.Contact;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+@ApiModel(value = "clients")
 public class ClientDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
+	
+	@ApiModelProperty(value = "Client Identifier.")
 	private Long id;
 	
+	@ApiModelProperty(value = "Client name.")
 	private String name;
 	
+	@ApiModelProperty(value = "Client birth date.")
 	private LocalDate birthDate;
 	
+	@ApiModelProperty(value = "Client CPF.")
 	private String cpf;
 	
+	@ApiModelProperty(value = "Client CNPJ.")
 	private String cnpj;
 	
+	@ApiModelProperty(value = "Client Salary.")
 	private Long remuneration;
 	
+	@ApiModelProperty(value = "Client job.")
 	private String job;
 	
+	@ApiModelProperty(value = "Client university formation.")
 	private String formation;
 	
+	@ApiModelProperty(value = "Alteration Date.")
 	private LocalDate alterationDate;
 	
+	@ApiModelProperty(value = "Client Contact.")
 	private Contact contact;
 	
+	@ApiModelProperty(value = "Client Address.")
 	private Address address;
 	
 	public Long getId() {
