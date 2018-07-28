@@ -1,9 +1,11 @@
 package com.luan.java8defaultcrudapplication.web.rest;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,8 +36,12 @@ private final ContactService contactService;
 	}
 	
 	@GetMapping()
-	public ResponseEntity<List<ContactDTO>> FindAll() throws URISyntaxException {
+	public ResponseEntity<List<ContactDTO>> findAll() throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.findAll());
 	}
 	
+	@GetMapping("/{contactId}")
+	public ResponseEntity<Optional<ContactDTO>> findById(@PathVariable("contactId") Long idContact) throws URISyntaxException {
+		return ResponseEntity.ok().body(contactService.findById(idContact));
+	}
 }
