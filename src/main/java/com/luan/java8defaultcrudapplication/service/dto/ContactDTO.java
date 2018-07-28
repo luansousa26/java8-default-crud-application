@@ -34,6 +34,7 @@ public class ContactDTO implements Serializable {
 	@ApiModelProperty(value = "Client id.")
 	private Long idClient;
 	
+	@ApiModelProperty(value = "Alteration Date.")
 	private LocalDate alterationDate;
 	
 	public Long getId() {

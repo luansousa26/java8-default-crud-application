@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.luan.java8defaultcrudapplication.service.ContactService;
 import com.luan.java8defaultcrudapplication.service.dto.ContactDTO;
 
-import io.swagger.annotations.Api;
 
 @RestController
-@Api("/contact")
+@RequestMapping("/contacts")
 public class ContactResource {
     
 private final ContactService contactService;
@@ -39,12 +39,12 @@ private final ContactService contactService;
 		return ResponseEntity.ok().body(contactService.findAll());
 	}
 	
-	@GetMapping("/{idContact}")
+	@GetMapping("/FindById/{idContact}")
 	public ResponseEntity<ContactDTO> findById(@PathVariable("idContact") Long idContact) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.findById(idContact));
 	}
 	
-	@DeleteMapping("/{idContact}")
+	@DeleteMapping("/delete/{idContact}")
 	public void delete(@PathVariable("idContact") Long idContact) {
 		contactService.delete(idContact);
 	}

@@ -27,6 +27,10 @@ public class ContactServiceImpl implements ContactService{
 
 	ContactMapper contactMapper;
 	
+	private ContactServiceImpl(ContactMapper contactMapper) {
+		this.contactMapper = contactMapper;
+	}
+	
 	@Override
 	public ContactDTO save(ContactDTO contactDTO) {
 		log.info("Request to save(): {}", contactDTO);
