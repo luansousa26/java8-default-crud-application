@@ -3,6 +3,7 @@ import java.net.URISyntaxException;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.luan.java8defaultcrudapplication.service.ContactService;
@@ -24,4 +25,10 @@ private final ContactService contactService;
 	public ResponseEntity<ContactDTO> save(@RequestBody ContactDTO contactDTO) throws URISyntaxException {
 		return ResponseEntity.ok().body(contactService.save(contactDTO));
 	}
+	
+	@PutMapping()
+	public ResponseEntity<ContactDTO> update(@RequestBody ContactDTO contactDTO) throws URISyntaxException {
+		return ResponseEntity.ok().body(contactService.update(contactDTO));
+	}
+	
 }
