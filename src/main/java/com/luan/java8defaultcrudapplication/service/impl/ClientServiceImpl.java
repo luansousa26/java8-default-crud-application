@@ -1,6 +1,9 @@
 package com.luan.java8defaultcrudapplication.service.impl;
 
+import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,32 +34,37 @@ private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplic
 
 	@Override
 	public ClientDTO save(ClientDTO clientDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to save(): {}", clientDTO);
+		clientDTO.setAlterationDate(LocalDate.now());
+		return clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
 	}
 
 	@Override
 	public ClientDTO update(ClientDTO clientDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to update(): {}", clientDTO);
+		clientDTO.setAlterationDate(LocalDate.now());
+		return clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
 	}
 
 	@Override
 	public List<ClientDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to findAll(): {}");
+		return clientRepository.findAll()
+				.stream()
+				.map(clientMapper :: toDto)
+				.collect(Collectors.toCollection(LinkedList :: new));
 	}
 
 	@Override
 	public ClientDTO findById(Long clientId) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to findById(): {}", clientId);
+		return clientMapper.toDto(clientRepository.findById(clientId));
 	}
 
 	@Override
 	public void delete(Long clientId) {
-		// TODO Auto-generated method stub
-		
+		log.info("Request to delete(): {}", clientId);
+	     clientRepository.deleteById(clientId);		
 	}
 	
 }
