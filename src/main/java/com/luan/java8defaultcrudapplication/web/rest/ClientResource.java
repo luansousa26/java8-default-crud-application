@@ -34,4 +34,9 @@ public class ClientResource {
 	public ResponseEntity<ClientDTO> update(@RequestBody ClientDTO clientDTO) throws URISyntaxException{
 		return ResponseEntity.ok().body(this.clientService.update(clientDTO));
 	}
+	
+	@GetMapping()
+	public ResponseEntity<List<ClientDTO>> findAll() throws URISyntaxException {
+		return ResponseEntity.ok().body(this.clientService.findAll());
+	}
 }
