@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.luan.java8defaultcrudapplication.Java8DefaultCrudApplication;
 import com.luan.java8defaultcrudapplication.repository.ClientRepository;
-import com.luan.java8defaultcrudapplication.repository.ContactRepository;
 import com.luan.java8defaultcrudapplication.service.ClientService;
+import com.luan.java8defaultcrudapplication.service.dto.ClientDTO;
+import com.luan.java8defaultcrudapplication.service.mapper.ClientMapper;
 
 @Service
 @Component
@@ -24,8 +25,13 @@ private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplic
 
 	ClientMapper clientMapper;
 	
+	private ClientServiceImpl(ClientMapper clientMapper) {
+		this.clientMapper = clientMapper;
+	}
+
 	@Override
 	public ClientDTO save(ClientDTO clientDTO) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -52,5 +58,5 @@ private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplic
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 }
