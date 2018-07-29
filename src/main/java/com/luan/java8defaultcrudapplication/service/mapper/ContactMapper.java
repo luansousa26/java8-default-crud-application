@@ -19,9 +19,9 @@ public interface ContactMapper extends EntityMapper<ContactDTO, Contact> {
 	        if (id == null) {
 	            return null;
 	        }
-	        Contact user = new Contact();
-	        user.setId(id);
-			return user;
+	        Contact contact = new Contact();
+	        contact.setId(id);
+			return contact;
 		}
 
 }
