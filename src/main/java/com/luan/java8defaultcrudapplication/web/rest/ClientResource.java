@@ -39,4 +39,14 @@ public class ClientResource {
 	public ResponseEntity<List<ClientDTO>> findAll() throws URISyntaxException {
 		return ResponseEntity.ok().body(this.clientService.findAll());
 	}
+	
+	@GetMapping("/{clientId}")
+     public ResponseEntity<ClientDTO> findById(@PathVariable("clientId") Long clientId) throws URISyntaxException {
+		return ResponseEntity.ok().body(this.clientService.findById(clientId));
+	}
+	
+	@DeleteMapping("/{clientId}")
+	public void delete(@PathVariable("clientId") Long clientId) {
+		this.clientService.delete(clientId);
+	}
 }
