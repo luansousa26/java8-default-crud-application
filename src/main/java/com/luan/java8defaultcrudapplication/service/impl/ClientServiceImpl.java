@@ -49,8 +49,8 @@ private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplic
 		log.info("Request to save(): {}", clientDTO);
 		clientDTO.setAlterationDate(LocalDate.now());
 		ClientDTO clientSaved = clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
-		clientDTO.getContact().setIdClient(clientDTO.getId());
-        contactRepository.save(clientDTO.getContact());		
+		clientSaved.getContact().setIdClient(clientSaved.getId());
+        contactRepository.save(clientSaved.getContact());		
 		return clientSaved;
 	}
 

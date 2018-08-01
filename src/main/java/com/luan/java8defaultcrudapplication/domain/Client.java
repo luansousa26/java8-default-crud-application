@@ -3,6 +3,7 @@ package com.luan.java8defaultcrudapplication.domain;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,10 +48,10 @@ public class Client implements Serializable {
 	@Column(name = "ALTERATION_DATE")
 	private LocalDate alterationDate;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL}) 
 	private Contact contact;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL}) 
 	private Address address;
 	
 	public Long getId() {
