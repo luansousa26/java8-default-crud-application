@@ -12,10 +12,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.luan.java8defaultcrudapplication.Java8DefaultCrudApplication;
+import com.luan.java8defaultcrudapplication.repository.AdressRepository;
 import com.luan.java8defaultcrudapplication.repository.ClientRepository;
+import com.luan.java8defaultcrudapplication.repository.ContactRepository;
 import com.luan.java8defaultcrudapplication.service.ClientService;
 import com.luan.java8defaultcrudapplication.service.dto.ClientDTO;
 import com.luan.java8defaultcrudapplication.service.mapper.ClientMapper;
+import com.luan.java8defaultcrudapplication.service.mapper.ContactMapper;
 
 @Service
 @Component
@@ -28,15 +31,27 @@ private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplic
 
 	ClientMapper clientMapper;
 	
-	private ClientServiceImpl(ClientMapper clientMapper) {
+	ContactMapper contactMapper;
+	
+	@Autowired
+	ContactRepository contactRepository;
+	
+	@Autowired
+	AdressRepository addressRepository;
+	
+	private ClientServiceImpl(ClientMapper clientMapper, ContactMapper contactMapper) {
 		this.clientMapper = clientMapper;
+		this.contactMapper = contactMapper;
 	}
 
 	@Override
 	public ClientDTO save(ClientDTO clientDTO) {
 		log.info("Request to save(): {}", clientDTO);
 		clientDTO.setAlterationDate(LocalDate.now());
-		return clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
+		ClientDTO clientSaved = clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
+		clientDTO.getContact().setIdClient(clientDTO.getId());
+        contactRepository.save(clientDTO.getContact());		
+		return clientSaved;
 	}
 
 	@Override
