@@ -1,8 +1,10 @@
 package com.luan.java8defaultcrudapplication.web.rest;
 
 import java.net.URISyntaxException;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,5 +28,10 @@ public class AddressResource {
     @PutMapping()
     public ResponseEntity<AddressDTO> update(@RequestBody AddressDTO addressDTO) throws URISyntaxException {
     	return ResponseEntity.ok().body(addressService.update(addressDTO));
+    }
+    
+    @GetMapping()
+    public ResponseEntity<List<AddressDTO>> findAll() throws URISyntaxException {
+    	return ResponseEntity.ok().body(addressService.findAll());
     }
 }
