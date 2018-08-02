@@ -28,8 +28,7 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public AddressDTO update(AddressDTO addressDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		return addressMapper.toDto(addressRepository.saveAndFlush(addressMapper.toEntity(addressDTO)));
 	}
 
 	@Override
