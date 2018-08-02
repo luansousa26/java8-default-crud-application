@@ -43,8 +43,7 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public AddressDTO findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return addressMapper.toDto(addressRepository.findById(id));
 	}
 
 	@Override
