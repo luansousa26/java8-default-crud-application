@@ -4,14 +4,11 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import com.luan.java8defaultcrudapplication.Java8DefaultCrudApplication;
 import com.luan.java8defaultcrudapplication.repository.ContactRepository;
 import com.luan.java8defaultcrudapplication.service.ContactService;
 import com.luan.java8defaultcrudapplication.service.dto.ContactDTO;
@@ -20,7 +17,7 @@ import com.luan.java8defaultcrudapplication.service.mapper.ContactMapper;
 @Component
 public class ContactServiceImpl implements ContactService{
 	
-	private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(ContactServiceImpl.class);
 	
 	@Autowired
 	ContactRepository contactRepository;
