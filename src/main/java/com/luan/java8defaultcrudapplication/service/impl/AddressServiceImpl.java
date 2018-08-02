@@ -48,7 +48,7 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		addressRepository.deleteById(id);
 		
 	}
 
