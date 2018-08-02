@@ -1,6 +1,6 @@
 # java8-default-crud-application :wolf:
 :leopard: Default CRUD code for use in other projects.
-For run use mvn clean and mvn install after use mvnw. Or use into to STS.
+For run use mvn clean and mvn install after use mvnw. Or use into STS.
 
 ## Images:
 ![image](https://user-images.githubusercontent.com/33549496/43233623-3a0efc02-904d-11e8-8437-02f8684b0a30.png)
