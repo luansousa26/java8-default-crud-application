@@ -1,6 +1,8 @@
 package com.luan.java8defaultcrudapplication.service.impl;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,8 +35,10 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public List<AddressDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return addressRepository.findAll()
+				.stream()
+				.map(addressMapper :: toDto)
+				.collect(Collectors.toCollection(LinkedList :: new));
 	}
 
 	@Override
