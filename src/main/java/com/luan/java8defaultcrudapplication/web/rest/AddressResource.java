@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,4 +22,9 @@ public class AddressResource {
 	public ResponseEntity<AddressDTO> save(@RequestBody AddressDTO addressDTO) throws URISyntaxException {
 		return ResponseEntity.ok().body(addressService.save(addressDTO));
 	}
+    
+    @PutMapping()
+    public ResponseEntity<AddressDTO> update(@RequestBody AddressDTO addressDTO) throws URISyntaxException {
+    	return ResponseEntity.ok().body(addressService.update(addressDTO));
+    }
 }
