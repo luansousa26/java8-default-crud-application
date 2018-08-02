@@ -24,7 +24,7 @@ import com.luan.java8defaultcrudapplication.service.mapper.ContactMapper;
 @Component
 public class ClientServiceImpl implements ClientService {
 
-private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(ClientServiceImpl.class);
 	
 	@Autowired
 	ClientRepository clientRepository;
