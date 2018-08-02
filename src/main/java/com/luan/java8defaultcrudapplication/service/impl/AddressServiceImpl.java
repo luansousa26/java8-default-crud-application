@@ -21,9 +21,11 @@ public class AddressServiceImpl implements AddressService {
 	@Autowired
 	private AddressRepository addressRepository;
 	
-	@Autowired
 	private AddressMapper addressMapper;
 	
+	public AddressServiceImpl(AddressMapper addressMapper) {
+		this.addressMapper = addressMapper;
+	}
 	@Override
 	public AddressDTO save(AddressDTO addressDTO) {
 		log.info("Request to save():{}",addressDTO);
