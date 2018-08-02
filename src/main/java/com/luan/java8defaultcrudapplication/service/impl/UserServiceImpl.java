@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService{
 	public UserDTO save(UserDTO userDTO) {
 		log.info("Request to save(): {}", userDTO);
 		userDTO.setAlterationDate(LocalDate.now());
-		return userMapper.toDto(userRepository.save(userMapper.toEntity(userDTO)));
+		return userMapper.toDto(userRepository.saveAndFlush(userMapper.toEntity(userDTO)));
 	}
 
 	@Override

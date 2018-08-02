@@ -51,7 +51,7 @@ public class ContactServiceImpl implements ContactService{
 	public ContactDTO update(ContactDTO contactDTO) {
 		log.info("Request to update()");
 		contactDTO.setAlterationDate(LocalDate.now());
-		return contactMapper.toDto(contactRepository.save(contactMapper.toEntity(contactDTO)));
+		return contactMapper.toDto(contactRepository.saveAndFlush(contactMapper.toEntity(contactDTO)));
 	}
 
 	@Override

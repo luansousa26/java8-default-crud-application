@@ -58,7 +58,7 @@ public class ClientServiceImpl implements ClientService {
 	public ClientDTO update(ClientDTO clientDTO) {
 		log.info("Request to update(): {}", clientDTO);
 		clientDTO.setAlterationDate(LocalDate.now());
-		return clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
+		return clientMapper.toDto(clientRepository.saveAndFlush(clientMapper.toEntity(clientDTO)));
 	}
 
 	@Override
