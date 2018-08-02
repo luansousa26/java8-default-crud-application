@@ -18,10 +18,12 @@ public class AddressServiceImpl implements AddressService {
 	@Autowired
 	private AddressRepository addressRepository;
 	
+	@Autowired
 	private AddressMapper addressMapper;
+	
 	@Override
 	public AddressDTO save(AddressDTO addressDTO) {
-		return null;
+		return addressMapper.toDto(addressRepository.save(addressMapper.toEntity(addressDTO)));
 	}
 
 	@Override
