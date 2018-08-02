@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,5 +34,10 @@ public class AddressResource {
     @GetMapping()
     public ResponseEntity<List<AddressDTO>> findAll() throws URISyntaxException {
     	return ResponseEntity.ok().body(addressService.findAll());
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<AddressDTO> findById(@PathVariable("id") Long id) throws URISyntaxException {
+    	return ResponseEntity.ok().body(addressService.findById(id));
     }
 }
