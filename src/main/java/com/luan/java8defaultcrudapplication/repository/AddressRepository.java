@@ -7,5 +7,5 @@ import com.luan.java8defaultcrudapplication.domain.Address;
 
 @SuppressWarnings("unused")
 @Repository
-public interface AdressRepository extends JpaRepository<Address, Long>, JpaSpecificationExecutor<Address>{
+public interface AddressRepository extends JpaRepository<Address, Long>, JpaSpecificationExecutor<Address>{
 }

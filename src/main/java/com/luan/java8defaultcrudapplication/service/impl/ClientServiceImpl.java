@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.luan.java8defaultcrudapplication.Java8DefaultCrudApplication;
-import com.luan.java8defaultcrudapplication.repository.AdressRepository;
+import com.luan.java8defaultcrudapplication.repository.AddressRepository;
 import com.luan.java8defaultcrudapplication.repository.ClientRepository;
 import com.luan.java8defaultcrudapplication.repository.ContactRepository;
 import com.luan.java8defaultcrudapplication.service.ClientService;
@@ -37,7 +37,7 @@ private static final Logger log = LoggerFactory.getLogger(Java8DefaultCrudApplic
 	ContactRepository contactRepository;
 	
 	@Autowired
-	AdressRepository addressRepository;
+	AddressRepository addressRepository;
 	
 	private ClientServiceImpl(ClientMapper clientMapper, ContactMapper contactMapper) {
 		this.clientMapper = clientMapper;

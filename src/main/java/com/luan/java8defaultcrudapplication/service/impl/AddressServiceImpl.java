@@ -2,19 +2,25 @@ package com.luan.java8defaultcrudapplication.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.luan.java8defaultcrudapplication.repository.AddressRepository;
 import com.luan.java8defaultcrudapplication.service.AddressService;
 import com.luan.java8defaultcrudapplication.service.dto.AddressDTO;
+import com.luan.java8defaultcrudapplication.service.mapper.AddressMapper;
 
 @Service
 @Component
 public class AddressServiceImpl implements AddressService {
 
+	@Autowired
+	private AddressRepository addressRepository;
+	
+	private AddressMapper addressMapper;
 	@Override
 	public AddressDTO save(AddressDTO addressDTO) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
