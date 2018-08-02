@@ -5,7 +5,7 @@ import org.mapstruct.Mapper;
 
 import com.luan.java8defaultcrudapplication.domain.Address;
 import com.luan.java8defaultcrudapplication.service.dto.AddressDTO;
-@Mapper(componentModel = "spring", uses = {AddressMapper.class})
+@Mapper(componentModel = "spring")
 public interface AddressMapper extends EntityMapper<AddressDTO, Address> {
 	
 		
