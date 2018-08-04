@@ -54,4 +54,9 @@ public class ClientResource {
 	public ResponseEntity<List<ClientDTO>> findByName(@PathVariable("name") String name) throws URISyntaxException {
 		return ResponseEntity.ok().body(clientService.findByName(name));
 	}
+	
+	@GetMapping("/findByJob/{job}")
+	public ResponseEntity<List<ClientDTO>> findByJob(@PathVariable("job") String job) throws URISyntaxException {
+		return ResponseEntity.ok().body(clientService.findByJob(job));
+	}
 }
