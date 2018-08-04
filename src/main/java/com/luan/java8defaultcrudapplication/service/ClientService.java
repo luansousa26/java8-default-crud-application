@@ -16,4 +16,6 @@ public interface ClientService {
 	
 	void delete(Long clientId);
 	
+	List<ClientDTO> findByName(String name);
+	
 }
