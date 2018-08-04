@@ -10,6 +10,7 @@ import com.luan.java8defaultcrudapplication.domain.Client;
 @SuppressWarnings("unused")
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long>, JpaSpecificationExecutor<Client>{
+	
 	List<Client> findBynameContainingIgnoreCase(String name);
 	
 	List<Client> findByJobContainingIgnoreCase(String job);
