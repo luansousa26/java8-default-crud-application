@@ -78,5 +78,11 @@ public class ClientServiceImpl implements ClientService {
 		log.info("Request to delete(): {}", clientId);
 	     clientRepository.deleteById(clientId);		
 	}
+
+	@Override
+	public List<ClientDTO> findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
