@@ -87,8 +87,8 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public List<ClientDTO> findByJob(String job) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("Request to findByJob(): {}",job);
+		return clientMapper.toDto(clientRepository.findByJobContainingIgnoreCase(job));
 	}
 	
 }
