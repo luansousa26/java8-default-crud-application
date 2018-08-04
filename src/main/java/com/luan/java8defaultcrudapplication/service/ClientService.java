@@ -18,4 +18,6 @@ public interface ClientService {
 	
 	List<ClientDTO> findByName(String name);
 	
+	List<ClientDTO> findByJob(String job);
+	
 }
