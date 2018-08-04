@@ -84,5 +84,11 @@ public class ClientServiceImpl implements ClientService {
 		log.info("Request to findByName(): {}", name);
 		return clientMapper.toDto(clientRepository.findBynameContainingIgnoreCase(name));
 	}
+
+	@Override
+	public List<ClientDTO> findByJob(String job) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
