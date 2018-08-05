@@ -15,4 +15,6 @@ public interface AddressService {
 	AddressDTO findById(Long id);
 	
 	void delete(Long id);
+	
+	AddressDTO findByIdClient(Long idClient);
 }
