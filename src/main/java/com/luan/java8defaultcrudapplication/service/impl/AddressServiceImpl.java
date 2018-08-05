@@ -59,5 +59,10 @@ public class AddressServiceImpl implements AddressService {
 		addressRepository.deleteById(id);
 		
 	}
+	@Override
+	public AddressDTO findByIdClient(Long idClient) {
+		log.info("Request to findByIdClient(): {}", idClient);
+		return addressMapper.toDto(addressRepository.findByIdClient(idClient));
+	}
 
 }
