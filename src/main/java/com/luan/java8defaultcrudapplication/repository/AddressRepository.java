@@ -8,4 +8,6 @@ import com.luan.java8defaultcrudapplication.domain.Address;
 @SuppressWarnings("unused")
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long>, JpaSpecificationExecutor<Address>{
+ 
+  Address findByIdClient(Long idClient);
 }
