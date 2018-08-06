@@ -1,8 +1,6 @@
 package com.luan.java8defaultcrudapplication.service.mapper;
-
 import java.util.Optional;
 import org.mapstruct.Mapper;
-
 import com.luan.java8defaultcrudapplication.domain.Address;
 import com.luan.java8defaultcrudapplication.service.dto.AddressDTO;
 @Mapper(componentModel = "spring")

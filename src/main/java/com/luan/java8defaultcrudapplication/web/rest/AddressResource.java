@@ -46,4 +46,10 @@ public class AddressResource {
     public void delete(@PathVariable("id") Long id) {
     	addressService.delete(id);
     }
+    
+    @GetMapping("/client/{idClient}")
+    public ResponseEntity<AddressDTO> findByIdClient(@PathVariable("idClient") Long idClient) throws URISyntaxException {
+           return ResponseEntity.ok().body(addressService.findByIdClient(idClient));
+    }
+    
 }

@@ -23,7 +23,7 @@ public class AddressServiceImpl implements AddressService {
 	
 	private AddressMapper addressMapper;
 	
-	public AddressServiceImpl(AddressMapper addressMapper) {
+	private AddressServiceImpl(AddressMapper addressMapper) {
 		this.addressMapper = addressMapper;
 	}
 	@Override
