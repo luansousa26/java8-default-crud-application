@@ -29,6 +29,9 @@ public class UserDTO implements Serializable {
 	public Long getId() {
 		return this.id;
 	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public void setName(String name) {
 		this.name = name;
