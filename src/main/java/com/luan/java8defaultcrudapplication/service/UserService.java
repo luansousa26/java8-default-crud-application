@@ -1,6 +1,8 @@
 package com.luan.java8defaultcrudapplication.service;
 import java.util.List;
+import java.util.Optional;
 
+import com.luan.java8defaultcrudapplication.domain.User;
 import com.luan.java8defaultcrudapplication.service.dto.UserDTO;
 
 public interface UserService {
@@ -9,7 +11,7 @@ public interface UserService {
 	
 	List<UserDTO> findAll();
 	
-	UserDTO findById(Long idUser);
+	Optional<User> findById(Long idUser);
 	
 	UserDTO update(UserDTO userDTO);
 	

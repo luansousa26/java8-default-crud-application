@@ -3,12 +3,15 @@ package com.luan.java8defaultcrudapplication.service.impl;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import com.luan.java8defaultcrudapplication.domain.User;
 import com.luan.java8defaultcrudapplication.repository.UserRepository;
 import com.luan.java8defaultcrudapplication.service.UserService;
 import com.luan.java8defaultcrudapplication.service.dto.UserDTO;
@@ -45,9 +48,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserDTO findById(Long idUser) {
+	public Optional<User> findById(Long idUser) {
 		log.info("Request to findById(): {}", idUser);
-		return userMapper.toDto(userRepository.findById(idUser));
+		return userRepository.findById(idUser);
 	}
 
 	@Override
