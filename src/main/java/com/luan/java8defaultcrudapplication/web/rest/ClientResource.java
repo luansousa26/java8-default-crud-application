@@ -3,6 +3,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,9 @@ import com.luan.java8defaultcrudapplication.service.dto.ClientDTO;
 @RestController
 @RequestMapping("/clients")
 public class ClientResource {
-
-	private final ClientService clientService;
 	
-	private ClientResource(ClientService clientService) {
-		this.clientService = clientService;
-	}
+	@Autowired
+	private ClientService clientService;
 	
 	@PostMapping()
 	public ResponseEntity<ClientDTO> save(@RequestBody ClientDTO clientDTO) throws URISyntaxException {
