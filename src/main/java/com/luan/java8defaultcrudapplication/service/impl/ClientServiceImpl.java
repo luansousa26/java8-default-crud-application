@@ -25,20 +25,20 @@ import com.luan.java8defaultcrudapplication.service.mapper.ContactMapper;
 public class ClientServiceImpl implements ClientService {
 
 	private static final Logger log = LoggerFactory.getLogger(ClientServiceImpl.class);
-	
+
 	@Autowired
 	ClientRepository clientRepository;
 
 	ClientMapper clientMapper;
-	
+
 	ContactMapper contactMapper;
-	
+
 	@Autowired
 	ContactRepository contactRepository;
-	
+
 	@Autowired
 	AddressRepository addressRepository;
-	
+
 	private ClientServiceImpl(ClientMapper clientMapper, ContactMapper contactMapper) {
 		this.clientMapper = clientMapper;
 		this.contactMapper = contactMapper;
@@ -46,17 +46,17 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public ClientDTO save(ClientDTO clientDTO) {
-		
+
 		log.info("Request to save(): {}", clientDTO);
 		clientDTO.setAlterationDate(LocalDate.now());
 		ClientDTO clientSaved = clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
-		
+
 		clientSaved.getContact().setIdClient(clientSaved.getId());
-        contactRepository.save(clientSaved.getContact());
-        
-        clientSaved.getAddress().setIdClient(clientSaved.getId());
-        addressRepository.save(clientSaved.getAddress());
-        
+		contactRepository.save(clientSaved.getContact());
+
+		clientSaved.getAddress().setIdClient(clientSaved.getId());
+		addressRepository.save(clientSaved.getAddress());
+
 		return clientSaved;
 	}
 
@@ -70,10 +70,8 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public List<ClientDTO> findAll() {
 		log.info("Request to findAll(): {}");
-		return clientRepository.findAll()
-				.stream()
-				.map(clientMapper :: toDto)
-				.collect(Collectors.toCollection(LinkedList :: new));
+		return clientRepository.findAll().stream().map(clientMapper::toDto)
+				.collect(Collectors.toCollection(LinkedList::new));
 	}
 
 	@Override
@@ -85,7 +83,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public void delete(Long clientId) {
 		log.info("Request to delete(): {}", clientId);
-	     clientRepository.deleteById(clientId);		
+		clientRepository.deleteById(clientId);
 	}
 
 	@Override
@@ -96,8 +94,8 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public List<ClientDTO> findByJob(String job) {
-		log.info("Request to findByJob(): {}",job);
+		log.info("Request to findByJob(): {}", job);
 		return clientMapper.toDto(clientRepository.findByJobContainingIgnoreCase(job));
 	}
-	
+
 }

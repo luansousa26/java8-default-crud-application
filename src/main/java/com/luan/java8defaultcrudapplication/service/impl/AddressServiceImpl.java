@@ -1,4 +1,5 @@
 package com.luan.java8defaultcrudapplication.service.impl;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -20,34 +21,33 @@ import com.luan.java8defaultcrudapplication.service.mapper.AddressMapper;
 public class AddressServiceImpl implements AddressService {
 
 	private static final Logger log = LoggerFactory.getLogger(AddressServiceImpl.class);
-	
+
 	@Autowired
 	private AddressRepository addressRepository;
-	
+
 	private AddressMapper addressMapper;
-	
+
 	private AddressServiceImpl(AddressMapper addressMapper) {
 		this.addressMapper = addressMapper;
 	}
+
 	@Override
 	public AddressDTO save(AddressDTO addressDTO) {
-		log.info("Request to save():{}",addressDTO);
+		log.info("Request to save():{}", addressDTO);
 		return addressMapper.toDto(addressRepository.save(addressMapper.toEntity(addressDTO)));
 	}
 
 	@Override
 	public AddressDTO update(AddressDTO addressDTO) {
-		log.info("Request to update():{}",addressDTO);
+		log.info("Request to update():{}", addressDTO);
 		return addressMapper.toDto(addressRepository.saveAndFlush(addressMapper.toEntity(addressDTO)));
 	}
 
 	@Override
 	public List<AddressDTO> findAll() {
 		log.info("Request to findAll()");
-		return addressRepository.findAll()
-				.stream()
-				.map(addressMapper :: toDto)
-				.collect(Collectors.toCollection(LinkedList :: new));
+		return addressRepository.findAll().stream().map(addressMapper::toDto)
+				.collect(Collectors.toCollection(LinkedList::new));
 	}
 
 	@Override
@@ -60,8 +60,9 @@ public class AddressServiceImpl implements AddressService {
 	public void delete(Long id) {
 		log.info("Request to delete()");
 		addressRepository.deleteById(id);
-		
+
 	}
+
 	@Override
 	public AddressDTO findByIdClient(Long idClient) {
 		log.info("Request to findByIdClient(): {}", idClient);

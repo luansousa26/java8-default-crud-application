@@ -16,21 +16,22 @@ import com.luan.java8defaultcrudapplication.repository.ContactRepository;
 import com.luan.java8defaultcrudapplication.service.ContactService;
 import com.luan.java8defaultcrudapplication.service.dto.ContactDTO;
 import com.luan.java8defaultcrudapplication.service.mapper.ContactMapper;
+
 @Service
 @Component
-public class ContactServiceImpl implements ContactService{
-	
+public class ContactServiceImpl implements ContactService {
+
 	private static final Logger log = LoggerFactory.getLogger(ContactServiceImpl.class);
-	
+
 	@Autowired
 	ContactRepository contactRepository;
 
 	ContactMapper contactMapper;
-	
+
 	private ContactServiceImpl(ContactMapper contactMapper) {
 		this.contactMapper = contactMapper;
 	}
-	
+
 	@Override
 	public ContactDTO save(ContactDTO contactDTO) {
 		log.info("Request to save(): {}", contactDTO);
@@ -41,10 +42,8 @@ public class ContactServiceImpl implements ContactService{
 	@Override
 	public List<ContactDTO> findAll() {
 		log.info("Request to findAll()");
-		return contactRepository.findAll()
-				.stream()
-				.map(contactMapper :: toDto)
-				.collect(Collectors.toCollection(LinkedList :: new));
+		return contactRepository.findAll().stream().map(contactMapper::toDto)
+				.collect(Collectors.toCollection(LinkedList::new));
 	}
 
 	@Override

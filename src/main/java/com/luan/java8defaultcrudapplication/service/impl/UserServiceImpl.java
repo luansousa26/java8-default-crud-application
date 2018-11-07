@@ -19,18 +19,18 @@ import com.luan.java8defaultcrudapplication.service.mapper.UserMapper;
 
 @Service
 @Component
-public class UserServiceImpl implements UserService{
-	
+public class UserServiceImpl implements UserService {
+
 	private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 	@Autowired
 	UserRepository userRepository;
 
 	UserMapper userMapper;
-	
+
 	private UserServiceImpl(UserMapper userMapper) {
 		this.userMapper = userMapper;
 	}
-	
+
 	@Override
 	public UserDTO save(UserDTO userDTO) {
 		log.info("Request to save(): {}", userDTO);
@@ -41,10 +41,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<UserDTO> findAll() {
 		log.info("Request to findAll()");
-		return userRepository.findAll()
-				.stream()
-				.map(userMapper :: toDto)
-				.collect(Collectors.toCollection(LinkedList :: new));
+		return userRepository.findAll().stream().map(userMapper::toDto)
+				.collect(Collectors.toCollection(LinkedList::new));
 	}
 
 	@Override
@@ -69,10 +67,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<UserDTO> findByName(String name) {
 		log.info("Request to findByName(): {}", name);
-		return userRepository.findBynameContainingIgnoreCase(name)
-				.stream()
-				.map(userMapper :: toDto)
-				.collect(Collectors.toCollection(LinkedList :: new));
+		return userRepository.findBynameContainingIgnoreCase(name).stream().map(userMapper::toDto)
+				.collect(Collectors.toCollection(LinkedList::new));
 	}
 
 }
