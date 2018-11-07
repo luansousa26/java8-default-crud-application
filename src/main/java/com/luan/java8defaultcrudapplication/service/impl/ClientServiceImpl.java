@@ -46,11 +46,17 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public ClientDTO save(ClientDTO clientDTO) {
+		
 		log.info("Request to save(): {}", clientDTO);
 		clientDTO.setAlterationDate(LocalDate.now());
 		ClientDTO clientSaved = clientMapper.toDto(clientRepository.save(clientMapper.toEntity(clientDTO)));
+		
 		clientSaved.getContact().setIdClient(clientSaved.getId());
-        contactRepository.save(clientSaved.getContact());		
+        contactRepository.save(clientSaved.getContact());
+        
+        clientSaved.getAddress().setIdClient(clientSaved.getId());
+        addressRepository.save(clientSaved.getAddress());
+        
 		return clientSaved;
 	}
 

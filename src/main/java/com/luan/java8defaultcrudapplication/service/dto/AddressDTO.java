@@ -27,7 +27,7 @@ public class AddressDTO implements Serializable{
 	
 	private LocalDate alterationDate;
 	
-	public Long geId() {
+	public Long getId() {
 		return this.id;
 	}
 	
@@ -91,7 +91,7 @@ public class AddressDTO implements Serializable{
 		this.cep  = cep;
 	}
 	
-	public Long geIdClient() {
+	public Long getIdClient() {
 		return this.idClient;
 	}
 	
