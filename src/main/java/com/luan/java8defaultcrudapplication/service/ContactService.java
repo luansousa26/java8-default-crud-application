@@ -1,7 +1,9 @@
 package com.luan.java8defaultcrudapplication.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.luan.java8defaultcrudapplication.domain.Contact;
 import com.luan.java8defaultcrudapplication.service.dto.ContactDTO;
 
 public interface ContactService {
@@ -14,5 +16,5 @@ public interface ContactService {
 	
 	void delete(Long idContact);
 	
-	ContactDTO findById(Long IdContact);
+	Optional<Contact> findById(Long IdContact);
 }
