@@ -2,7 +2,9 @@ package com.luan.java8defaultcrudapplication.web.rest;
 
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.luan.java8defaultcrudapplication.domain.Address;
 import com.luan.java8defaultcrudapplication.service.AddressService;
 import com.luan.java8defaultcrudapplication.service.dto.AddressDTO;
 
@@ -20,6 +23,7 @@ import com.luan.java8defaultcrudapplication.service.dto.AddressDTO;
 @RequestMapping("/address")
 public class AddressResource {
 	
+	@Autowired
 	private AddressService addressService;
 
     @PostMapping()	
@@ -38,7 +42,7 @@ public class AddressResource {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<AddressDTO> findById(@PathVariable("id") Long id) throws URISyntaxException {
+    public ResponseEntity<Optional<Address>> findById(@PathVariable("id") Long id) throws URISyntaxException {
     	return ResponseEntity.ok().body(addressService.findById(id));
     }
     

@@ -1,12 +1,15 @@
 package com.luan.java8defaultcrudapplication.service.impl;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import com.luan.java8defaultcrudapplication.domain.Address;
 import com.luan.java8defaultcrudapplication.repository.AddressRepository;
 import com.luan.java8defaultcrudapplication.service.AddressService;
 import com.luan.java8defaultcrudapplication.service.dto.AddressDTO;
@@ -48,9 +51,9 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-	public AddressDTO findById(Long id) {
+	public Optional<Address> findById(Long id) {
 		log.info("Request to findById()");
-		return addressMapper.toDto(addressRepository.findById(id));
+		return addressRepository.findById(id);
 	}
 
 	@Override

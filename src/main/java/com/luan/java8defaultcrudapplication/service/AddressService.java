@@ -1,7 +1,9 @@
 package com.luan.java8defaultcrudapplication.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.luan.java8defaultcrudapplication.domain.Address;
 import com.luan.java8defaultcrudapplication.service.dto.AddressDTO;
 
 public interface AddressService {
@@ -12,7 +14,7 @@ public interface AddressService {
 	
 	List<AddressDTO> findAll();
 	
-	AddressDTO findById(Long id);
+	Optional<Address> findById(Long id);
 	
 	void delete(Long id);
 	
