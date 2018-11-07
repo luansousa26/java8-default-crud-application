@@ -3,12 +3,15 @@ package com.luan.java8defaultcrudapplication.service.impl;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import com.luan.java8defaultcrudapplication.domain.Client;
 import com.luan.java8defaultcrudapplication.repository.AddressRepository;
 import com.luan.java8defaultcrudapplication.repository.ClientRepository;
 import com.luan.java8defaultcrudapplication.repository.ContactRepository;
@@ -68,9 +71,9 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public ClientDTO findById(Long clientId) {
+	public Optional<Client> findById(Long clientId) {
 		log.info("Request to findById(): {}", clientId);
-		return clientMapper.toDto(clientRepository.findById(clientId));
+		return clientRepository.findById(clientId);
 	}
 
 	@Override

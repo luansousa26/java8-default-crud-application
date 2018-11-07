@@ -1,6 +1,4 @@
 package com.luan.java8defaultcrudapplication.service.mapper;
-
-import java.util.Optional;
 import org.mapstruct.Mapper;
 
 import com.luan.java8defaultcrudapplication.domain.Client;
@@ -12,8 +10,6 @@ public interface ClientMapper extends EntityMapper<ClientDTO, Client> {
 		
 	ClientDTO toDto(Client client);
 	Client toEntity(ClientDTO clientDTO);
-	ClientDTO toDto(Optional<Client> client);
-	Client toEntity(Optional<ClientDTO> clientDTO);
 
 		default Client fromId(Long id) {
 	        if (id == null) {

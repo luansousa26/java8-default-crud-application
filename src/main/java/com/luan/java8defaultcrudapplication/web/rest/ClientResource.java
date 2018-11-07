@@ -1,6 +1,8 @@
 package com.luan.java8defaultcrudapplication.web.rest;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.luan.java8defaultcrudapplication.domain.Client;
 import com.luan.java8defaultcrudapplication.service.ClientService;
 import com.luan.java8defaultcrudapplication.service.dto.ClientDTO;
 
@@ -41,7 +44,7 @@ public class ClientResource {
 	}
 	
 	@GetMapping("/{clientId}")
-     public ResponseEntity<ClientDTO> findById(@PathVariable("clientId") Long clientId) throws URISyntaxException {
+     public ResponseEntity<Optional<Client>> findById(@PathVariable("clientId") Long clientId) throws URISyntaxException {
 		return ResponseEntity.ok().body(this.clientService.findById(clientId));
 	}
 	
