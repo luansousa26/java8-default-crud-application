@@ -1,5 +1,10 @@
 package com.luan.java8defaultcrudapplication;
 
+/**
+ * @author Luan Sousa
+ * Github: luansousa26
+ */
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +17,6 @@ public class Java8DefaultCrudApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Java8DefaultCrudApplication.class, args);
-		log.info("PROJECT LUAN RUNNING");
+		log.info("PROJECT RUNNING");
 	}
 }
